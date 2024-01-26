@@ -1,1 +1,13 @@
-{"title":"ADIVINHE A BANDEIRA","words":["Nigéria","Paraguai","Liechtenstein","Dominica","Haiti","Gabão"],"images":["https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/255px-Flag_of_Nigeria.svg.png","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Flag_of_Paraguay_%281812-1826%29.svg/120px-Flag_of_Paraguay_%281812-1826%29.svg.png","https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_Liechtenstein.svg/255px-Flag_of_Liechtenstein.svg.png","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Flag_of_Dominica.svg/255px-Flag_of_Dominica.svg.png","https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Haiti.svg/255px-Flag_of_Haiti.svg.png","https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Gabon.svg/227px-Flag_of_Gabon.svg.png"],"difficulty":"Easy"}
+{
+  "title": "ADIVINHE A BANDEIRA",
+  "words": ["Kiribati", "Palau", "Omã", "Cuba", "Moldávia", "Escócia"],
+  "images": [
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kiribati.svg/255px-Flag_of_Kiribati.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Palau.svg/255px-Flag_of_Palau.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Oman.svg/255px-Flag_of_Oman.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Cuba.svg/255px-Flag_of_Cuba.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Moldova.svg/255px-Flag_of_Moldova.svg.png",
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Great_Britain_%281707%E2%80%931800%29.svg/120px-Flag_of_Great_Britain_%281707%E2%80%931800%29.svg.png"
+  ],
+  "difficulty": "Medium"
+}
