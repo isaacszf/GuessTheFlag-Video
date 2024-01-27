@@ -28,7 +28,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
         defaultProps={{ title, difficulty, data, seconds, gifUrl }}
         calculateMetadata={async _ => {
-          const segmentDurationInFrames = 7 * fps
+          const segmentDurationInFrames = 8 * fps
           const totalSegmentsDuration = segmentDurationInFrames * data.length
           const dur = totalSegmentsDuration + 150
 

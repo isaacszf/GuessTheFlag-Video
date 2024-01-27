@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useCurrentFrame, useVideoConfig } from 'remotion'
 
 type Props = {
+  startFrame: number
   seconds: number
 }
 
-export const Counter = ({ seconds }: Props) => {
-  const [timeLeft, setTimeLeft] = useState(seconds)
+export const Counter = ({ startFrame, seconds }: Props) => {
+  const frame = useCurrentFrame()
+  const { fps } = useVideoConfig()
 
-  useEffect(() => {
-    if (timeLeft === 0) return
-
-    const intervalDecrease = setInterval(() => setTimeLeft(t => t - 1), 1000)
-    return () => clearInterval(intervalDecrease)
-  }, [timeLeft])
+  const totalFrames = seconds * fps
+  const framesLeft = startFrame + totalFrames - frame
+  const timeLeft = Math.max(Math.ceil(framesLeft / fps), 0)
 
   return (
     <div

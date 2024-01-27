@@ -17,25 +17,26 @@ type Props = { data: FlagType[] }
 export const Flag = ({ data }: Props) => {
   const [frameNameAudio, setFrameNameAudio] = useState(0)
   const [frameTickTockAudio, setFrameTickTockAudio] = useState(0)
+  const [startFrame, setStartFrame] = useState(0)
 
   const { fps } = useVideoConfig()
   const frame = useCurrentFrame()
 
   const appearSeconds = 5
+  const waitAfterSeconds = 3
+  const nameInterval = appearSeconds * 4 * 10
 
-  const nameAppearanceDuration = appearSeconds * fps // 5 segundos para o nome aparecer
-  const waitAfterNameDuration = 2 * fps // 2 segundos após o nome aparecer
-  const totalDuration = nameAppearanceDuration + waitAfterNameDuration // Duração total de cada ciclo
+  const nameAppearanceDuration = appearSeconds * fps
+  const waitAfterNameDuration = waitAfterSeconds * fps
+  const totalDuration = nameAppearanceDuration + waitAfterNameDuration
 
-  // Calcula o índice da bandeira atual
   const index = Math.floor(frame / totalDuration) % data.length
+  const shouldShowName = frame % totalDuration >= nameInterval
 
-  // Determina se deve mostrar o nome (após 5 segundos da bandeira aparecer)
-  const shouldShowName = frame % totalDuration >= nameAppearanceDuration
-
-  // Dados da bandeira atual
   const name = data[index][0]
   const link = data[index][1]
+
+  const delay = data.length * ((appearSeconds + waitAfterSeconds) * 8)
 
   // Animation
   const resetFrame = Math.floor(frame / totalDuration) * totalDuration
@@ -43,11 +44,17 @@ export const Flag = ({ data }: Props) => {
 
   useEffect(() => {
     if (shouldShowName) {
-      setFrameNameAudio(frame)
-    } else {
-      setFrameTickTockAudio(frame)
+      if (index === 0) setFrameNameAudio(f => (f += nameInterval))
+      if (index !== 0) setFrameNameAudio(f => (f += delay))
     }
-  }, [index, shouldShowName])
+
+    if (!shouldShowName) {
+      if (index !== 0) {
+        setFrameTickTockAudio(f => (f += delay))
+        setStartFrame(frame)
+      }
+    }
+  }, [shouldShowName])
 
   return (
     <AbsoluteFill>
@@ -76,7 +83,7 @@ export const Flag = ({ data }: Props) => {
         >
           {!shouldShowName && (
             <div style={{ position: 'absolute', top: -300 }}>
-              <Counter seconds={appearSeconds} />
+              <Counter seconds={appearSeconds} startFrame={startFrame} />
             </div>
           )}
           <img
