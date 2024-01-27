@@ -1,4 +1,4 @@
-import { AbsoluteFill, Sequence, Img, staticFile } from 'remotion'
+import { AbsoluteFill, Sequence, Img, staticFile, Audio } from 'remotion'
 
 import { Flag } from './components/Flag'
 import { Presentation } from './components/Presentation'
@@ -11,12 +11,10 @@ import './font.css'
 export const Video = ({ title, difficulty, data, gifUrl }: VideoProps) => {
   return (
     <AbsoluteFill style={{ fontFamily: 'Montserrat' }}>
-      <AbsoluteFill>
+      <AbsoluteFill style={{ background: '#000' }}>
         <Img
-          style={{ width: '100%', height: '100%' }}
-          src={
-            gifUrl.includes('https') ? gifUrl : staticFile(`guess/${gifUrl}`)
-          }
+          style={{ width: '100%', height: '100%', filter: 'blur(7px)' }}
+          src={gifUrl.includes('https') ? gifUrl : staticFile(gifUrl)}
         ></Img>
       </AbsoluteFill>
 
@@ -28,6 +26,8 @@ export const Video = ({ title, difficulty, data, gifUrl }: VideoProps) => {
       </Sequence>
 
       <Watermark />
+
+      <Audio src={staticFile('flags/audios/music.mp3')} volume={0.015} />
     </AbsoluteFill>
   )
 }

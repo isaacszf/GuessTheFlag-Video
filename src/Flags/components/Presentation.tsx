@@ -5,6 +5,8 @@ import {
   useCurrentFrame,
   Audio,
   Sequence,
+  spring,
+  useVideoConfig,
 } from 'remotion'
 
 import { Difficulty } from '../../../lib/types/difficulty'
@@ -37,7 +39,16 @@ const selectAudioByLevel = (dif: Difficulty): string => {
 }
 
 export const Presentation = ({ title, difficulty: level }: Props) => {
+  const { fps } = useVideoConfig()
   const frame = useCurrentFrame()
+
+  const titleAnimation = spring({
+    fps: fps - 10,
+    frame: frame - 10,
+    config: {
+      stiffness: 100,
+    },
+  })
 
   const levelOpacity = interpolate(frame, [69, 70], [0, 1], {
     extrapolateRight: 'clamp',
@@ -69,6 +80,7 @@ export const Presentation = ({ title, difficulty: level }: Props) => {
           style={{
             fontSize: 120,
             width: '70%',
+            transform: `scale(${titleAnimation})`,
           }}
         >
           {title}
@@ -84,9 +96,9 @@ export const Presentation = ({ title, difficulty: level }: Props) => {
         </span>
       </div>
 
-      <Audio src={staticFile('flags/audios/title.mp3')} />
+      <Audio src={staticFile('flags/audios/title.mp3')} volume={0.5} />
       <Sequence from={80}>
-        <Audio src={staticFile(selectAudioByLevel(level))} />
+        <Audio src={staticFile(selectAudioByLevel(level))} volume={0.5} />
       </Sequence>
     </AbsoluteFill>
   )

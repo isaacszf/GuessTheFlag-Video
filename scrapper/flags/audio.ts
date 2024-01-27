@@ -24,6 +24,7 @@ const elevenLabsRequest = async (
       voice_settings: {
         stability: 1,
         similarity_boost: 1,
+        language: 'pt-BR',
       },
       model_id: 'eleven_multilingual_v2',
     },

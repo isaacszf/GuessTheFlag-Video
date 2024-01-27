@@ -11,8 +11,7 @@ export const RemotionRoot: React.FC = () => {
   const difficulty = flagJson['difficulty'] as Difficulty
   const words = flagJson['words']
   const images = flagJson['images']
-  const gifUrl =
-    'https://i.pinimg.com/originals/fd/b2/1c/fdb21c0e4f3dbb6ccd9a63c68fce8645.gif'
+  const gifUrl = 'flags/space.gif'
 
   const data = words.map((word, index) => [word, images[index]]) as Flag[]
   const seconds = data.length + 1
@@ -29,7 +28,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
         defaultProps={{ title, difficulty, data, seconds, gifUrl }}
         calculateMetadata={async _ => {
-          const segmentDurationInFrames = 6 * fps
+          const segmentDurationInFrames = 7 * fps
           const totalSegmentsDuration = segmentDurationInFrames * data.length
           const dur = totalSegmentsDuration + 150
 

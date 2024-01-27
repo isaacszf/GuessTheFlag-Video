@@ -14,13 +14,13 @@ export const Watermark = () => {
       <span
         style={{
           position: 'absolute',
-          bottom: 30,
+          bottom: 60,
 
           color: '#525252',
           fontSize: '50px',
         }}
       >
-        @vincietas
+        @{process.env.PAGE_NAME}
       </span>
     </AbsoluteFill>
   )

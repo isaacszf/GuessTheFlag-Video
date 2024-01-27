@@ -28,6 +28,7 @@ const getFlagsHref = (root: HTMLElement) =>
         'Guernsey',
         'Estados Federados da Micronésia',
         'Brasil',
+        'Escócia',
       ]
       return cases.every(c => !anchor.attrs.href.includes(c))
     })
