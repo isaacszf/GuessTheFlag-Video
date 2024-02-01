@@ -22,21 +22,17 @@ export const Flag = ({ data }: Props) => {
   const { fps } = useVideoConfig()
   const frame = useCurrentFrame()
 
-  const appearSeconds = 5
-  const waitAfterSeconds = 3
-  const nameInterval = appearSeconds * 4 * 10
+  const appearSeconds = 5 * fps
+  const waitAfterSeconds = 3 * fps
 
-  const nameAppearanceDuration = appearSeconds * fps
-  const waitAfterNameDuration = waitAfterSeconds * fps
-  const totalDuration = nameAppearanceDuration + waitAfterNameDuration
+  const totalDuration = appearSeconds + waitAfterSeconds
+  const shouldShowName = frame % totalDuration >= appearSeconds
+  const delayAfterName = appearSeconds + waitAfterSeconds
 
   const index = Math.floor(frame / totalDuration) % data.length
-  const shouldShowName = frame % totalDuration >= nameInterval
 
   const name = data[index][0]
   const link = data[index][1]
-
-  const delay = data.length * ((appearSeconds + waitAfterSeconds) * 8)
 
   // Animation
   const resetFrame = Math.floor(frame / totalDuration) * totalDuration
@@ -44,13 +40,13 @@ export const Flag = ({ data }: Props) => {
 
   useEffect(() => {
     if (shouldShowName) {
-      if (index === 0) setFrameNameAudio(f => (f += nameInterval))
-      if (index !== 0) setFrameNameAudio(f => (f += delay))
+      if (index === 0) setFrameNameAudio(f => (f += appearSeconds))
+      if (index !== 0) setFrameNameAudio(f => (f += delayAfterName))
     }
 
     if (!shouldShowName) {
       if (index !== 0) {
-        setFrameTickTockAudio(f => (f += delay))
+        setFrameTickTockAudio(f => (f += delayAfterName))
         setStartFrame(frame)
       }
     }
@@ -83,7 +79,7 @@ export const Flag = ({ data }: Props) => {
         >
           {!shouldShowName && (
             <div style={{ position: 'absolute', top: -300 }}>
-              <Counter seconds={appearSeconds} startFrame={startFrame} />
+              <Counter seconds={5} startFrame={startFrame} />
             </div>
           )}
           <img
