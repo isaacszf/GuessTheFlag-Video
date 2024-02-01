@@ -1,7 +1,7 @@
 # GuessTheFlag-Video
 
-<div align="center">
-  <img src=".github/logo.png" alt="GuessTheFlag Logo" >
+<div align="center" >
+  <img src=".github/logo.png" alt="GuessTheFlag Logo" width=700 height=500 >
 </div>
 
 An application designed to completely automate the production of short videos in the 'Guess the Flag' style, specifically crafted for the Brazilian Portuguese audience.
@@ -9,6 +9,10 @@ An application designed to completely automate the production of short videos in
 ---
 
 ## Preview
+
+<div align="center">
+    <video src="https://github.com/isaacszf/GuessTheFlag-Video/assets/70985216/59e7d716-3ccc-4adc-80c4-c040341f9be8" />
+</div>
 
 ---
 
@@ -40,6 +44,8 @@ To successfully run the application, you need to populate the information in a `
 
 ## Running
 
-`npm run flag-start` - Initiates the web scraping for flags and starts the Remotion Studio for interactive development.
+First of all, run `npm i`, then:
 
-`npm run flag-build` - Initiates the web scraping for flags and renders the Flags component to generate the final video in the 'out' directory.
+- `npm run flag-start` - Initiates the web scraping for flags and starts the Remotion Studio for interactive development.
+
+- `npm run flag-build` - Initiates the web scraping for flags and renders the Flags component to generate the final video in the 'out' directory.
