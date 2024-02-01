@@ -1,54 +1,45 @@
-# Remotion video
+# GuessTheFlag-Video
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.gif">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+<div align="center">
+  <img src=".github/logo.png" alt="GuessTheFlag Logo" >
+</div>
 
-Welcome to your Remotion project!
+An application designed to completely automate the production of short videos in the 'Guess the Flag' style, specifically crafted for the Brazilian Portuguese audience.
 
-## Commands
+---
 
-**Install Dependencies**
+## Preview
 
-```console
-npm i
-```
+---
 
-**Start Preview**
+## Features
 
-```console
-npm start
-```
+1. **Web Scraping from Wikipedia:**
 
-**Render video**
+   - Automated data retrieval of flags from the Wikipedia website to gather information.
 
-```console
-npm run build
-```
+2. **Eleven Labs Voice Model:**
 
-**Upgrade Remotion**
+   - Integration with the Eleven Labs voice model to pronounce the names of the flags.
 
-```console
-npm run upgrade
-```
+3. **Fully Automated Video Creation:**
+   - Implementation of a 100% automatic video creation process using the collected flag information and the Eleven Labs voice model.
 
-## Docs
+---
 
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
+## Requirements
 
-## Help
+To successfully run the application, you need to populate the information in a `.env` file with the following key-value pairs:
 
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
+- `ELEVEN_LABS_API`: Your Eleven Labs API key.
+- `ELEVEN_LABS_VOICE_MODEL_ID`: Model ID for the Eleven Labs voice.
+- `NUM_OF_FLAGS`: The desired number of flags for the videos.
+- `PAGE_NAME`: The name of the channel that will post the videos.
 
-## Issues
+---
 
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
+## Running
 
-## License
+`npm run flag-start` - Initiates the web scraping for flags and starts the Remotion Studio for interactive development.
 
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
+`npm run flag-build` - Initiates the web scraping for flags and renders the Flags component to generate the final video in the 'out' directory.

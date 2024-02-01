@@ -7,8 +7,9 @@
     "build": "remotion render Flags out/video.mp4",
     "upgrade": "remotion upgrade",
     "test": "eslint src --ext ts,tsx,js,jsx && tsc",
-    "scrapper-flag": "ts-node scrapper/flags/index.ts",
-    "flag": "npm run scrapper-flag && npm run start"
+    "scraper-flag": "ts-node scraper/flags/index.ts",
+    "flag-start": "npm run scrapper-flag && npm run start",
+    "flag-build": "npm run scrapper-flag && npm run build"
   },
   "repository": {},
   "license": "UNLICENSED",
