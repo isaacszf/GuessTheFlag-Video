@@ -1,6 +1,6 @@
 import 'dotenv/config'
 
-import { generateJSON } from './flags'
+import { selectRandomFlags } from './flags'
 import { generateAudios } from './audio'
 
 let numOfFlags = 5
@@ -13,7 +13,7 @@ if (envNumOfFlags !== undefined) {
   }
 }
 
-generateJSON(numOfFlags)
+selectRandomFlags(numOfFlags)
   .then(() => {
     console.log('\nGenerating audios:')
     return generateAudios()
